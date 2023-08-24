@@ -65,6 +65,51 @@ siguientes métodos para la clase:
 datos.
  mostrar(): Muestra los datos de la persona.
  Es_mayor_de_edad(): Devuelve un valor lógico indicando si es mayor de edad."""
+class Persona:
+    def __init__(self, nombre = "", edad = 0, dni=""):
+        self.nombre = nombre
+        self.edad = edad
+        self.dni = dni
+    @property
+    def get_nombre(self):
+        return self.nombre
+    @property
+    def get_edad(self):
+        return self.edad
+    @property
+    def get_dni(self):
+        return self.dni
+    @nombre.setter
+    def nombre(self, nuevo_nombre):
+        if nuevo_nombre:
+            self.__nombre = nuevo_nombre
+    @edad.setter
+    def edad(self, nuevo_edad):
+        if nuevo_edad >=0:
+            self.nombre = nuevo_edad
+    @dni.setter
+    def dni(self, nuevo_dni):
+        if len(nuevo_dni)==8:
+            self.nombre = nuevo_dni
+    
+    def mostrar(self):
+        print(f"Nombre: {self.nombre}, Edad: {self.edad}, DNI: {self.dni}")
+    
+    def es_mayor_de_edad(self):
+        return self.edad >= 18
+try:
+    p1 = Persona("Maxi", 13, "12345678")
+    p1.mostrar()
+    print("Es mayor de edad") if p1.es_mayor_de_edad() else print("Es menor de edad")
+    
+    print(f"Nombre {p1.nombre}\nEdad: {p1.edad}\nDNI: {p1.dni}")
+    
+    p1.nombre = "Cami"
+    p1.edad = 12
+    p1.dni = 14785236
+    p1.mostrar()
+except: 
+    print("Picaro")
 
 """7. Crea una clase llamada Cuenta que tendrá los siguientes atributos: titular (que es una 
 persona) y cantidad (puede tener decimales). El titular será obligatorio y la cantidad es 
@@ -77,7 +122,6 @@ directamente, sólo ingresando o retirando dinero.
 negativa, no se hará nada.
  retirar(cantidad): se retira una cantidad a la cuenta. La cuenta puede estar en números 
 rojos."""
-
 """8. Vamos a definir ahora una “Cuenta Joven”, para ello vamos a crear una nueva clase 
 CuantaJoven que deriva de la clase creada en el punto 7. Cuando se crea esta nueva clase, 
 además del titular y la cantidad se debe guardar una bonificación que estará expresada en 
