@@ -61,9 +61,11 @@ def get_int(lista_enteros):
         while num!=-1:
            num=int(input("Ingrese un número, -1 para terminar: ")) 
            lista_enteros.append(num)
-        lista_enteros.pop()
+        lista_enteros.pop() #Borro el ultimo elemento que es el menos 1 y no me interesa conservarlo
         return lista_enteros
     except:
         print("Debes ingresar un valor númerico")
-        get_int(lista_enteros)
-
+        get_int(lista_enteros) #Aca para no terminar la vuelvo a llamar hasta que el ususario decide terminar de  ingresar números
+#Me salio bien a la primera!!!!
+#Diferencia que hay entre las soluciones propuestas y lo mio. No guardan todos los valores ingresados. 
+#Yo los guardo en una lista, solo porque interprete que sería más util tenes los valores en un futuro problema

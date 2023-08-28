@@ -6,39 +6,59 @@ datos.
  mostrar(): Muestra los datos de la persona.
  Es_mayor_de_edad(): Devuelve un valor lógico indicando si es mayor de edad."""
 class Persona:
-    def __init__(self, nombre = "", edad = 0, dni=""):
+    def __init__(self, nombre="", edad=0, dni=""):
         self.nombre = nombre
         self.edad = edad
         self.dni = dni
-    @property
+
     def get_nombre(self):
         return self.nombre
-    @property
+    
+    def set_nombre(self, nombre):
+        self.nombre = nombre
+
     def get_edad(self):
         return self.edad
-    @property
+
+    def set_edad(self, edad):
+        if edad >= 0:
+            self.edad = edad
+        else:
+            print("La edad no puede ser negativa.")
+
     def get_dni(self):
         return self.dni
-    @nombre.setter
-    def nombre(self, nuevo_nombre):
-        if nuevo_nombre:
-            self.__nombre = nuevo_nombre
-    @edad.setter
-    def edad(self, nuevo_edad):
-        if nuevo_edad >=0:
-            self.nombre = nuevo_edad
-    @dni.setter
-    def dni(self, nuevo_dni):
-        if len(nuevo_dni)==8:
-            self.nombre = nuevo_dni
-    
+
+    def set_dni(self, dni):
+        if len(dni) == 9:
+            self.dni = dni
+        else:
+            print("El DNI debe tener 9 caracteres.")
+
     def mostrar(self):
-        print(f"Nombre: {self.nombre}, Edad: {self.edad}, DNI: {self.dni}")
-    
+        print("Nombre:", self.nombre)
+        print("Edad:", self.edad)
+        print("DNI:", self.dni)
+
     def es_mayor_de_edad(self):
         return self.edad >= 18
+
+
+# Ejemplo 
+persona1 = Persona()
+persona1.set_nombre("Maximiliano")
+persona1.set_edad(13)
+persona1.set_dni("50525869")
+
+persona1.mostrar()
+if persona1.es_mayor_de_edad():
+    print("Es mayor de edad.")
+else:
+    print("No es mayor de edad.")
+    
+
 try:
-    p1 = Persona("Maxi", 13, "12345678")
+    p1 = Persona("Anibal", 39, "12345678")
     p1.mostrar()
     print("Es mayor de edad") if p1.es_mayor_de_edad() else print("Es menor de edad")
     

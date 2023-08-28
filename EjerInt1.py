@@ -10,3 +10,5 @@ else:
     print("El o los valores ingresador son incorrectos")
 print("FIN DEL PROGRAMA")
 #Funciona
+"""Este programa lo pense en un primer momento para llamar a la funcion de la biblioteca math. Pero desconfie en que fuera tan sencillo y por eso 
+cree una funcion que la calculara manualmente."""
